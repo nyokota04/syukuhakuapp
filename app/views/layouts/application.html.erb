@@ -11,6 +11,40 @@
   </head>
 
   <body>
-    <%= yield %>
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+    <header>  
+      <%= link_to root_path do %>
+        <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="poteshare" title="poteshare">
+      <% end %>
+
+      <% if user_signed_in? %>
+      <%= link_to user_path(current_user), class: "header_user_name" do %>
+        <p><%= current_user.user_name %></p>
+      <% end %>
+
+      <%= link_to destroy_user_session_path , method: :delete, class: "navbar_item" do %>
+          <p>ログアウト</p>
+        <% end %>
+        
+      <% else %>
+        <%= link_to new_user_registration_path, class: "navbar_item" do %>
+          <p>新規登録</p>
+        <% end %>
+
+        <%= link_to new_user_session_path, class: "navbar_item" do %>
+          <p>ログイン</p>
+        <% end %>
+      <% end %> 
+
+    </header>
+
+      <%= yield %>
   </body>
 </html>

@@ -1,0 +1,25 @@
+<h1>Rooms#new</h1>
+<p>Find me in app/views/rooms/new.html.erb</p>
+<p>部屋　新規登録</p>
+
+<%= form_for @room do |f| %>
+
+  <%= f.label :ルーム名 %>
+  <%= f.text_field :room_name %>
+
+  <%= f.label :ルーム紹介 %>
+  <%= f.text_field :room_detail %>
+
+  <%= f.label :料金 %>
+  <%= f.number_field :price %>
+
+  <%= f.label :住所 %>
+  <%= f.text_field :address %>
+
+  <%= f.label :ルーム画像 %>
+  <%= f.file_field :room_img %><br>
+
+  <%= f.submit %>
+
+
+<% end %>

@@ -1,0 +1,43 @@
+<h1>Rooms#show</h1>
+<p>Find me in app/views/rooms/show.html.erb</p>
+
+<p>部屋の詳細</p>
+
+<p>ルーム画像</>
+<%= image_tag @room.room_img %>
+
+<p>ルーム名</>
+<%= @room.room_name %>
+
+<p>ルーム紹介</>
+<%= simple_format @room.room_detail %>
+
+<p>料金</>
+<%= @room.price %>
+
+<p>住所</>
+<%= @room.address %>
+
+
+<%= form_for @reserve, method: :post, url: new_reserf_path  do |f| %>
+
+  <%= f.label :予約開始日 %>
+  <%= f.date_field :start_date %>
+
+  <%= f.label :予約終了日 %>
+  <%= f.date_field :end_date %>
+
+  <%= f.label :人数 %>
+  <%= f.number_field :people %>
+
+  <%= f.submit %>
+
+  <% end %>
+
+
+
+
+      <%= link_to user_path(current_user), class: "header_user_name" do %>
+        <p><%= current_user.user_name %></p>
+      <% end %>
+

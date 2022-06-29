@@ -1,0 +1,16 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<p>アイコン画像</p>
+<% if @user.user_img.attached? %>
+  <%= image_tag @user.user_img %>
+<% end %>
+
+<p>名前</>
+<%= @user.user_name %>
+<p>メール</p>
+<%= @user.email %>
+<p>プロフィール</p>
+<%= @user.profile %>
+
+<%= link_to "編集" ,edit_user_path(@user) %>
