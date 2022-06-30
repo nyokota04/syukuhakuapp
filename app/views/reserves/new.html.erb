@@ -3,9 +3,13 @@
 
 
 <p>予約機能がうまくいっているかの確認</p>
-<%= @reserve.start_date %>
+<%= form_with model: @reserve, url: reserf_path(:id), local:true do |f| %>
+  <p>開始日</p>
+  <p><%= @reserve.start_date %></p>
+<% end %>
 
 <%= form_for @reserve do |f| %>
+  <%= @reserve.start_date %>
 
   <%= f.label :予約開始日 %>
   <%= f.date_field :start_date %>
@@ -18,15 +22,14 @@
   <%= f.number_field :people %>
 
   <%= f.label :使用日数 %>
-  <% start_date = start_date.to_i %> 
-  <% end_date = end_date.to_i %>
-  <%= remain = (@days).to_i %>
+  <%= @days %>
 
 
   <%= f.label :合計金額 %>
 
 
   <%= f.submit %>
+  
   
 
   <% end %>

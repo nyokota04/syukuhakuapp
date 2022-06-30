@@ -9,12 +9,13 @@ class RoomsController < ApplicationController
 
 
   def create
+    # binding.pry
     @room = Room.new(room_params)
     @room.user_id = current_user.id
     if @room.save
       redirect_to room_path(@room)
     else
-      render root_path
+      render :new
     end
     @room = Room.create params.require(:room).permit(:room_img)
   end
