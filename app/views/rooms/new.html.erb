@@ -2,7 +2,8 @@
 <p>Find me in app/views/rooms/new.html.erb</p>
 <p>部屋　新規登録</p>
 
-<%= form_for @room do |f| %>
+<%= form_with model: @room do |f| %>
+ 
 
   <%= f.label :ルーム名 %>
   <%= f.text_field :room_name %>

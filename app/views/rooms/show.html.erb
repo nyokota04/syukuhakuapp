@@ -19,7 +19,11 @@
 <%= @room.address %>
 
 
-<%= form_for @reserve, method: :post, url: new_reserf_path  do |f| %>
+
+<%= form_with model: @reserve, method: :post, url: new_reserf_path  do |f| %>
+
+  <%= f.hidden_field :room_id, value: @room.id %> 
+                  
 
   <%= f.label :予約開始日 %>
   <%= f.date_field :start_date %>
@@ -31,6 +35,8 @@
   <%= f.number_field :people %>
 
   <%= f.submit %>
+
+ 
 
   <% end %>
 

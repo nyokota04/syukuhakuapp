@@ -24,6 +24,7 @@
         <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="poteshare" title="poteshare">
       <% end %>
 
+
       <% if user_signed_in? %>
       <%= link_to user_path(current_user), class: "header_user_name" do %>
         <p><%= current_user.user_name %></p>
@@ -42,6 +43,17 @@
           <p>ログイン</p>
         <% end %>
       <% end %> 
+
+      <%= search_form_for @q do |f| %>
+        <%= f.label :エリア検索 %>
+        <%= f.search_field :address_cont %>
+        <%= f.submit %>
+
+      <%= f.label :キーワード検索 %>
+      <%= f.search_field :room_name_or_room_detail_cont %>
+      <%= f.submit %>
+    <% end %>
+      
 
     </header>
 

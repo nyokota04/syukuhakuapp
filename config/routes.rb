@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :rooms
   post 'reserves/new'
   resources :reserves
+  get "search" => "searches#search"
 end

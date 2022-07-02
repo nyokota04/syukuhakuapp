@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all
+    # @rooms = Room.all
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(distinct: true)
   end
 
   def new

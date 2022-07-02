@@ -10,19 +10,24 @@ class ReservesController < ApplicationController
     @reserve = Reserve.new(reserve_params)
     # @reserve = Reserve.find(params[:id])
     @days = (@reserve.end_date - @reserve.start_date).to_i
+    @room = Room.find(params[:reserve][:room_id])
   end
 
   def create
-    # @reserve = Reserve.new(reserve_params)
+    #  binding.pry
+    @room = Room.find(params[:reserve][:room_id])
+    @reserve = Reserve.new(reserve_params)
     # binding.pry
-    if
+    if @reserve.save
       Reserve.new(reserve_params)
       redirect_to new_reserf_path
     else
-      render root_path
+      render :new
     end
    
-    @room = Room.find(params[:reserve][:room_id])
+    
+    # @room = Room.find_by(room_id: params[:room_id])
+    # binding.pry
   end
 
   def show
@@ -30,7 +35,9 @@ class ReservesController < ApplicationController
 
     private
   def reserve_params
-    params.require(:reserve).permit(:start_date, :end_date, :people).merge(user_id: current_user.id, room_id: params[:room_id])
+    params.require(:reserve).permit(:start_date, :end_date, :people, :room_id, :user_id, :room_id).merge(user_id: current_user.id, room_id: (params[:reserve][:room_id]))
   end
 
 end
+
+
