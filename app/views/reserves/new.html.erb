@@ -1,35 +1,56 @@
-<h1>Reserves#new</h1>
-<p>Find me in app/views/reserves/new.html.erb</p>
 
 
-<p>予約機能がうまくいっているかの確認</p>
-<%= form_for @reserve, url: reserf_path(:id), local:true do |f| %>
-  <p>開始日</p>
-  <p><%= @reserve.start_date %></p>
-<% end %>
+<h3>予約内容確認</h3>
 
 <%= form_for @reserve do |f| %>
-  <%= @reserve.start_date %>
 
-  <%= f.label :予約開始日 %>
-  <%= f.date_field :start_date %>
+  <div class = reserve_new>
+    <ul>
+      <li>
+      <%= f.label :開始日 %>
+      ：<%= @reserve.start_date %>
+      <%= f.hidden_field :start_date %> 
+      </li>
+
+      <li>
+      <%= f.label :終了日 %>
+      ：<%= @reserve.end_date %>
+      <%= f.hidden_field :end_date %> 
+      </li>
+      
+
+
+      <li>
+      <%= f.label :人数 %>
+      ：<%= @reserve.people %>人
+      <%= f.hidden_field :people %> 
+      </li>
+
+
+      <li>
+      <%= f.label :使用日数 %>
+      ：<%= @days %>日間
+      </li>
+
+
+      <li>
+      <%= f.label :合計金額 %>
+      ￥<%=  @price %>
+      </li>
+    </ul>
+
+  </div>
+
+
+  <%= f.hidden_field :room_id, value: @room.id %> 
+
+ <p>以上の内容でよろしければ確定ボタンを押してください</p>
+  <%= f.submit "予約を確定する" %>
+
+  <%=link_to room_path(@reserve.room_id) do %>
+    <button class="btn btn-secondary btn-lg" >部屋詳細に戻る</button>
+    <%end%>
+  
+  
  
-
-  <%= f.label :予約終了 %>
-  <%= f.date_field :end_date %>
-
-  <%= f.label :人数 %>
-  <%= f.number_field :people %>
-
-  <%= f.label :使用日数 %>
-  # <%= @days %>
-
-
-  <%= f.label :合計金額 %>
-
-
-  <%= f.submit %>
-  
-  
-
   <% end %>

@@ -59,3 +59,4 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'ransack'
+# gem 'rails-i18n'

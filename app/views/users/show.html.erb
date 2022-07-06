@@ -1,16 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 <p>アイコン画像</p>
-<% if @user.user_img.attached? %>
-  <%= image_tag @user.user_img %>
+
+
+<% if User.where.not(user_img: [nil, '']) %>
+      <%= image_tag @user.user_img, size: '80x80' %>
+    <% else %>
+      <%= image_tag "no_image.png", size: '80x80' %>
 <% end %>
 
-<p>名前</>
+
+
+<ul>
+<li>
+<p>名前</p>
 <%= @user.user_name %>
+</li>
+
+<li>
+
 <p>メール</p>
 <%= @user.email %>
+</li>
+
+<li>
 <p>プロフィール</p>
 <%= @user.profile %>
+</li>
+
+
+</ul>
 
 <%= link_to "編集" ,edit_user_path(@user) %>

@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  # belongs_to :user
+  belongs_to :room, optional: true
   belongs_to :reserve, optional: true
-
   has_one_attached :user_img
 
   # has_meny :rooms, dependent: :destroy
+
+  has_many :rooms
 end

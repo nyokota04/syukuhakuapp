@@ -1,17 +1,28 @@
-<h1>Rooms#index</h1>
-<p>Find me in app/views/rooms/index.html.erb</p>
-
-<h1>ルーム一覧</h1>
+<h1>ルーム一覧　<%= @rooms.count%>件数</h1>
 
 
 <% @rooms.each do |room| %>
-  <%= link_to room_path(room) do %>
-    <p>ルーム画像</>
-    <%= image_tag room.room_img %>
-    <%= room.room_name %>
-    <%= room.room_detail %>
-    <%= room.price %>
+<div class = index>
+  <%= link_to room_path(room), class: "index_content" do %>
+    <%= image_tag room.room_img, size: '230x200', class: "index_img" %>
+    <ul>
+    <li class = name_address>
+    <h3 class = index_name><%= room.room_name %></h3>
+    </li>
+
+    <li class = name_address>
     <%= room.address %>
+    </li>
+
+    <li>
+    ￥<%= room.price %>
+    </li>
+    </ul>
+    
+    
+    
+    
+    </div>
   <% end %>
   <% end %>
 

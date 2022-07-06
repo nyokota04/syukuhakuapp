@@ -1,12 +1,54 @@
-<h1>Reserves#index</h1>
-<p>Find me in app/views/reserves/index.html.erb</p>
-
-
+<h3>予約一覧</h3>
 
   <% @reserves.each do |reserve| %>
-      <%= reserve.room_id %>
-      <%= reserve.start_date %>
-      <%= reserve.price %>
-      <%= reserve.end_date %>
-    <% end %>
+  <% @rooms.each do |room| %>
+    <div class = reserve_index>
+    <%= link_to room_path(reserve.room_id), class: "index_content" do %>
+    <ul>
+    <li>
+    <p class = room_index_tag>部屋画像</p>
+    <%= image_tag room.room_img %>
+    </li>
 
+    <li>
+    <p class = room_index_tag>部屋の名前</p>
+    <%= room.room_name %>
+    </li>
+
+    <li>
+    <p class = room_index_tag>部屋の説明</p>
+    <%= room.room_detail %>
+    </li>
+
+    <li>
+    <p class = room_index_tag>合計金額</p>
+    <%= room.price.to_i * reserve.people * (reserve.end_date - reserve.start_date).to_i %>
+    </li>
+
+    <li>
+    <p class = room_index_tag>開始日</p>
+    <%= reserve.start_date %>
+    </li>
+
+    <li>
+    <p class = room_index_tag>終了日</p>
+    <%= reserve.end_date %>
+    </li>
+
+    <li>
+    <p class = room_index_tag>予約確定日</p>
+    <%= reserve.created_at %>
+    </li>
+
+    </ul>
+    </div>
+
+     
+    <% end %>
+   
+    <% end %>
+   
+    <% end %>
+x
+
+  
