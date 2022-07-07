@@ -1,26 +1,38 @@
-<h1>Rooms#new</h1>
-<p>Find me in app/views/rooms/new.html.erb</p>
-<p>部屋　新規登録</p>
+
+<h3>部屋の新規登録</h3>
 
 <%= form_with model: @room do |f| %>
  
+  <div class = new_room>
+<ul>
+<li>
+<%= f.label :ルーム名 %><br>
+<%= f.text_field :room_name %></br>
+</li>
 
-  <%= f.label :ルーム名 %>
-  <%= f.text_field :room_name %>
+<li>
 
-  <%= f.label :ルーム紹介 %>
-  <%= f.text_field :room_detail %>
+<%= f.label :ルーム紹介, class: "room_detail_tag" %><br>
+<%= f.text_area :room_detail, class: "room_detail_field" %></br>
+</li>
 
-  <%= f.label :料金 %>
-  <%= f.number_field :price %>
+<li>
+<%= f.label :料金 %><br>
+<%= f.number_field :price %></br>
+</li>
 
-  <%= f.label :住所 %>
-  <%= f.text_field :address %>
+<li>
+<%= f.label :住所 %><br>
+<%= f.text_field :address %></br>
+</li>
 
-  <%= f.label :ルーム画像 %>
-  <%= f.file_field :room_img %>
+<li>
+<%= f.label :ルーム画像 %><br>
+<%= f.file_field :room_img %></br>
+</li>
+</div>
 
-  <%= f.submit %>
+  <%= f.submit "作成" %>
 
 
 <% end %>

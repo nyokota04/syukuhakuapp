@@ -4,10 +4,17 @@
   <% @rooms.each do |room| %>
     <div class = reserve_index>
     <%= link_to room_path(reserve.room_id), class: "index_content" do %>
+     
     <ul>
     <li>
     <p class = room_index_tag>部屋画像</p>
-    <%= image_tag room.room_img %>
+
+
+      <% if room.room_img.attached? %>
+       <%= image_tag room.room_img, size: '200x200' %>
+      <% else %>  
+        <%= image_tag "no_image.png", size: '200x200' %>
+      <% end %>
     </li>
 
     <li>
@@ -49,6 +56,6 @@
     <% end %>
    
     <% end %>
-x
+
 
   

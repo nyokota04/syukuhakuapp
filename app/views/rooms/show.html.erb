@@ -38,8 +38,11 @@
   <%= f.label :人数 %>
   <%= f.number_field :people %>
 
-  <%= f.submit %>
-
+  <% if user_signed_in? %>
+  <%= f.submit "予約確認画面へ" %>
+  <% else %>
+  <input type="submit" formaction="/users/sign_in" value="ログイン">  
+  <% end %>
 
  </div>
 

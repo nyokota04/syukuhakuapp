@@ -20,24 +20,32 @@
       <% end %>
 
     <header>  
-      <%= link_to root_path do %>
-        <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="poteshare" title="poteshare">
-      <% end %>
+  
 
 <div class ="header_content">
+
 <ul>
+
+<li>
+<%= link_to root_path do %>
+  <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png" alt="poteshare" title="poteshare">
+  </li>
+<% end %>
      <li>   
       <% if user_signed_in? %>
-      <%= link_to user_path(current_user), class: "header_user_name", class: "navbar_item" do %>
-        <% if User.where("room_id IS NOT NULL") %>
-        <%= image_tag "no_image.png", size: '80x80' %>
-        <% else %>  
+      <%= link_to user_path(current_user), class: "navbar_name" do %>
+        <% if current_user.user_img.attached? %>
         <%= image_tag current_user.user_img, size: '80x80' %>
+        <% else %>  
+        <%= image_tag "no_image.png", size: '80x80' %>
         <% end %>
+        </li>
 
+        <li class = navbar_name >
         <%= current_user.user_name %>
+        </li>
       <% end %>
-      </li>
+     
 
       <li>
       <%= link_to new_room_path, class: "navbar_item" do %>
@@ -74,6 +82,7 @@
       </ul>
 </div>  
 
+<div class = header_search>
       <%= search_form_for @q, class: "search_list" do |f| %>
       <ul>
         <li>
@@ -89,9 +98,20 @@
       </li>
     </ul>  
     <% end %>
-    
+
+    <div class = main_content>
+    </div>
+
+    <div class = main_content>
+    <p></p>
+    </div>
     </header>
 
+   
+    
       <%= yield %>
+     
+
+  
   </body>
 </html>

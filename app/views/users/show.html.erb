@@ -1,14 +1,13 @@
 <p>アイコン画像</p>
 
-
-<% if User.where.not(user_img: [nil, '']) %>
-      <%= image_tag @user.user_img, size: '80x80' %>
-    <% else %>
-      <%= image_tag "no_image.png", size: '80x80' %>
+<% if @user.user_img.attached? %>
+<%= image_tag current_user.user_img, size: '80x80' %>
+<% else %>  
+<%= image_tag "no_image.png", size: '80x80' %>
 <% end %>
 
 
-
+<div class = user_show>
 <ul>
 <li>
 <p>名前</p>
@@ -26,7 +25,6 @@
 <%= @user.profile %>
 </li>
 
-
 </ul>
 
-<%= link_to "編集" ,edit_user_path(@user) %>
+<%= link_to "編集" ,edit_user_path(@user), class: "user_edit_link" %>

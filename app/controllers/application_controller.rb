@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     @rooms = @q.result(distinct: true)
   end
 
-  
 
   private
 
