@@ -1,17 +1,16 @@
 
 <div class = main>
-<h1>好きな場所やキーワードを検索して　宿を借りよう</h1>
+  <h1>好きな場所やキーワードを検索して　宿を借りよう</h1>
 
-
-<%= search_form_for @q, class: "search_list" do |f| %>
-  <%= f.label :エリア検索 %>
-  <%= f.search_field :address_cont, placeholder: '東京' %>
-  <% f.submit %>
+  <%= search_form_for @q, class: "search_list" do |f| %>
+    <%= f.label :エリア検索 %>
+    <%= f.search_field :address_cont, placeholder: '東京' %>
+    <% f.submit %>
   <% end %>
 
   <%= search_form_for @q, class: "search_list" do |f| %>
     <%= f.label :部屋一覧を見てみる %>
     <%= f.submit "一覧へ" %>
-    <% end %>
+  <% end %>
 
-    </div>
+</div>

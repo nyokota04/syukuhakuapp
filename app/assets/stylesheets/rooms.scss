@@ -1,26 +1,19 @@
 
 .index_content{
-  // background-color: aquamarine;
   text-decoration: none;
 }
 
 .index {
 border: solid 3px gray;
-// display: flex;
 display: inline-flex;
 flex-wrap: wrap;
-// justify-content:space-around;
-// flex-flow: column;
 width: 230px;
 margin: 10px;
 padding: 10px 0;
-// background-color: aqua;
 }
 
 .index li {
   list-style: none;
-  // display: list-item; 
-  // display: inline-block;
   margin: 0 5px;
 }
 
@@ -28,20 +21,14 @@ padding: 10px 0;
   display: block;
 }
 
-// .index_img {
-//   margin-bottom: 0px;
-// }
-
 .index_name {
   margin: 0 5px 5px 5px;
 }
 
 .show_img {
-  // padding: 10px;
   margin: 10px 80px 10px 10px;
   display: flex;
   float: left;
-
 }
 
 
@@ -52,8 +39,6 @@ padding: 10px 0;
 
 .show_room li {
   list-style: none;
-  // display: list-item; 
-  // display: inline-block;
   margin: 0 5px;
 }
 
@@ -70,7 +55,6 @@ padding: 10px 0;
 
 .new_room ul{
   display: block;
-  // float: left;
 }
 
 .room_detail_field {
